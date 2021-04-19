@@ -1,4 +1,4 @@
-# chrome-0day
+# Chrome-0day
 ## 影响范围
 
 目前最新版也受影响
