@@ -1,7 +1,8 @@
 # Chrome-0day
 ## 影响范围
 
-目前最新版也受影响
+目前最新版也受影响。
+
 小于等于90.0.4430.72 (正式版本)
 
 ## 漏洞利用过程
@@ -37,7 +38,7 @@ msfvenom -a x86 -p windows/exec CMD="calc" EXITFUNC=thread -f num
 
 将生成的代码放入exploit.html中shellcode[]中。
 
-#### 1.2.1方式一
+#### 1.2.1 方式一
 
 浏览器关闭沙盒并打开网页
 
@@ -46,7 +47,7 @@ msfvenom -a x86 -p windows/exec CMD="calc" EXITFUNC=thread -f num
 ```
 <img src="$imgs/image-20210419212729010.png" alt="image-20210419212729010" style="zoom:50%;" />
 
-#### 方式二
+#### 1.2.2 方式二
 
 在攻击机当前目录下用python或kali自带的apache2开启一个http服务。
 
