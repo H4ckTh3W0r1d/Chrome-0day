@@ -3,7 +3,7 @@
 
 Google Chrome是由Google开发的免费网页浏览器。经测试，此漏洞影响 Chrome 最新正式版（89.0.4389.128）以及基于Chromium内核的Microsoft Edge正式版（89.0.774.76）。攻击者可通过构造特制web页面并诱导受害者访问来利用此漏洞获得远程代码执行。
 
-Chrome一直是很多用户使用的浏览器，最新出来了一个Chrome 0Day](https://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247493386&idx=1&sn=168b3a6d23acb04b144bbc4e0ec44e8a&scene=21#wechat_redirect) ，然后我这边已经成功复现，配合这个0day，可以执行任意命令，不过前提条件是需要chrome开启--no-sandbox无沙盒模式，我们可以生成一个链接让受害者点击直接上线Cobalt Strike。
+Chrome一直是很多用户使用的浏览器，最新出来了一个[Chrome 0Day](https://mp.weixin.qq.com/s?__biz=MzU5NDgxODU1MQ==&mid=2247493386&idx=1&sn=168b3a6d23acb04b144bbc4e0ec44e8a&scene=21#wechat_redirect) ，然后我这边已经成功复现，配合这个0day，可以执行任意命令，不过前提条件是需要chrome开启--no-sandbox无沙盒模式，我们可以生成一个链接让受害者点击直接上线Cobalt Strike。
 
 ## 影响范围
 
